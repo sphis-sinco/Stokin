@@ -1,18 +1,23 @@
 package stokin.states;
 
-class TitleState extends MusicBeatState
+import stokin.backend.codeins.CodeinBeatState;
+
+class TitleState extends CodeinBeatState
 {
-    public var title:FlxText;
+	public var title:FlxText;
 
-	override function create()
+	override public function new()
 	{
-		super.create();
+		super();
 
-        title = new FlxText();
-        title.text = "Stokin";
-        title.size = 32;
-        title.screenCenter();
-        title.y -= title.height;
-        add(title);
+		addCodein(CREATE, function()
+		{
+			title = new FlxText();
+			title.text = "Stokin";
+			title.size = 32;
+			title.screenCenter();
+			title.y -= title.height;
+			add(title);
+		});
 	}
 }

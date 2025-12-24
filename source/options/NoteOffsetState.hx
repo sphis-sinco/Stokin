@@ -5,8 +5,6 @@ import objects.Character;
 import objects.Bar;
 import flixel.addons.display.shapes.FlxShapeCircle;
 
-import mikolka.stages.erect.MainStageErect as BackgroundStage;
-
 class NoteOffsetState extends MusicBeatState
 {
 	var stageDirectory:String = 'week1';
@@ -57,15 +55,7 @@ class NoteOffsetState extends MusicBeatState
 		persistentUpdate = true;
 		FlxG.sound.pause();
 		// Stage
-		#if !js
-		if(#if !BASE_GAME_FILES Paths.fileExists(stageDirectory,BINARY) #else true #end){
-
-			Paths.setCurrentLevel(stageDirectory);
-			var stage = new BackgroundStage();
-			stage.create();
-			add(stage);
-		}
-		#end
+		add(new FlxSprite().makeGraphic(FlxG.width, FlxG.height));
 
 		// Characters
 		gf = new Character(400, 130, 'gf');

@@ -261,13 +261,11 @@ class DialogueEditorState extends MusicBeatState implements PsychUIEventHandler.
 		daText.y = style.DEFAULT_TEXT_Y;
 		if(style.rowCount() > 2) daText.y -= style.LONG_TEXT_ADD;
 
-		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
 		var rpcText:String = lineInputText.text;
 		if(rpcText == null || rpcText.length < 1) rpcText = '(Empty)';
 		if(rpcText.length < 3) rpcText += '   '; //Fixes a bug on RPC that triggers an error when the text is too short
-		DiscordClient.changePresence("Dialogue Editor", rpcText);
-		#end
+		EzDiscord.changePresence("Dialogue Editor", rpcText);
 	}
 
 	public function UIEvent(id:String, sender:Dynamic) {

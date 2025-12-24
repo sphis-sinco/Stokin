@@ -1,5 +1,6 @@
 package states;
 
+import stokin.backend.EzDiscord;
 import openfl.Assets;
 import mikolka.vslice.components.crash.UserErrorSubstate;
 import backend.PsychCamera;
@@ -239,12 +240,10 @@ class PlayState extends MusicBeatState
 	public var opponentCameraOffset:Array<Float> = null;
 	public var girlfriendCameraOffset:Array<Float> = null;
 
-	#if DISCORD_ALLOWED
 	// Discord RPC variables
 	var storyDifficultyText:String = "";
 	var detailsText:String = "";
 	var detailsPausedText:String = "";
-	#end
 
 	// Achievement shit
 	var keysPressed:Array<Int> = [];
@@ -343,7 +342,6 @@ class PlayState extends MusicBeatState
 		Conductor.mapBPMChanges(SONG);
 		Conductor.bpm = SONG.bpm;
 
-		#if DISCORD_ALLOWED
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
 		storyDifficultyText = Difficulty.getString();
 
@@ -354,7 +352,6 @@ class PlayState extends MusicBeatState
 
 		// String for when the game is paused
 		detailsPausedText = "Paused - " + detailsText;
-		#end
 
 		GameOverSubstate.resetVariables();
 		songName = Paths.formatToSongPath(SONG.song);
@@ -1419,11 +1416,9 @@ class PlayState extends MusicBeatState
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 
-		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence (with Time Left)
 		if (autoUpdateRPC)
-			DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter(), true, songLength);
-		#end
+			EzDiscord.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter(), true, songLength);
 		setOnScripts('songLength', songLength);
 		callOnScripts('onSongStart');
 	}
@@ -1844,7 +1839,6 @@ override function closeSubState()
 	}
 }
 
-#if DISCORD_ALLOWED
 override public function onFocus():Void
 {
 	super.onFocus();
@@ -1859,22 +1853,20 @@ override public function onFocusLost():Void
 	super.onFocusLost();
 	if (!paused && health > 0 && autoUpdateRPC)
 	{
-		DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
+		EzDiscord.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 	}
 }
-#end
 
 // Updating Discord Rich Presence.
 public var autoUpdateRPC:Bool = true; // performance setting for custom RPC things
 
 function resetRPC(?showTime:Bool = false)
 {
-	#if DISCORD_ALLOWED
 	if (!autoUpdateRPC)
 		return;
 
 	if (showTime)
-		DiscordClient.changePresence(detailsText, SONG.song
+		EzDiscord.changePresence(detailsText, SONG.song
 			+ " ("
 			+ storyDifficultyText
 			+ ")", iconP2.getCharacter(), true,
@@ -1882,8 +1874,7 @@ function resetRPC(?showTime:Bool = false)
 			- Conductor.songPosition
 			- ClientPrefs.data.noteOffset);
 	else
-		DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-	#end
+		EzDiscord.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 }
 
 function resyncVocals():Void
@@ -2218,10 +2209,8 @@ function openPauseMenu()
 	}
 	openSubState(new PauseSubState());
 
-	#if DISCORD_ALLOWED
 	if (autoUpdateRPC)
-		DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-	#end
+		EzDiscord.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 }
 
 public function openChartEditor()
@@ -2237,11 +2226,10 @@ public function openChartEditor()
 		vocals.pause();
 	if (opponentVocals != null)
 		opponentVocals.pause();
-
-	#if DISCORD_ALLOWED
-	DiscordClient.changePresence("Chart Editor", null, null, true);
-	DiscordClient.resetClientID();
-	#end
+	
+	EzDiscord.changePresence("Chart Editor", null, null, true);
+	EzDiscord.resetClientID();
+	
 
 	MusicBeatState.switchState(new ChartingState(!chartingMode));
 	chartingMode = true;
@@ -2261,7 +2249,7 @@ function openCharacterEditor()
 	if (opponentVocals != null)
 		opponentVocals.pause();
 
-	#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
+	EzDiscord.resetClientID();
 	MusicBeatState.switchState(new CharacterEditorState(SONG.player2));
 }
 
@@ -2317,11 +2305,9 @@ function doDeathCheck(?skipHealthCheck:Bool = false)
 
 			// MusicBeatState.switchState(new GameOverState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 
-			#if DISCORD_ALLOWED
 			// Game Over doesn't get his its variable because it's only used here
 			if (autoUpdateRPC)
-				DiscordClient.changePresence("Game Over - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-			#end
+				EzDiscord.changePresence("Game Over - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 			isDead = true;
 			return true;
 		}
@@ -2857,7 +2843,7 @@ public function endSong()
 
 				var prevRank = Scoring.calculateRankFromData(prevScore, prevAcc, wasFC);
 				// FlxG.sound.playMusic(Paths.music('freakyMenu'));
-				#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
+				EzDiscord.resetClientID();
 
 				canResync = false;
 
@@ -2906,7 +2892,7 @@ public function endSong()
 
 			var prevRank = Scoring.calculateRankFromData(prevScore, prevAcc, wasFC);
 
-			#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
+			EzDiscord.resetClientID();
 
 			canResync = false;
 			zoomIntoResultsScreen(prevScore < tempActiveTallises.score, tempActiveTallises, prevRank);

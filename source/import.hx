@@ -136,6 +136,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.system.FlxAssets.FlxShader;
 
+import stokin.backend.EzDiscord;
 import stokin.Global;
 
 #end

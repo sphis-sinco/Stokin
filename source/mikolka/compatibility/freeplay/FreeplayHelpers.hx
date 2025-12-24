@@ -146,9 +146,7 @@ class FreeplayHelpers
 
 		FlxG.sound.music.volume = 0;
 
-		#if (MODS_ALLOWED && DISCORD_ALLOWED)
-		DiscordClient.loadModRPC();
-		#end
+		EzDiscord.loadModRPC();
 	}
 
 	public static function weekIsLocked(name:String):Bool

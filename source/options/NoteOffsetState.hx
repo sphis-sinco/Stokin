@@ -1,5 +1,6 @@
 package options;
 
+import stokin.backend.EzDiscord;
 import backend.StageData;
 import objects.Character;
 import objects.Bar;
@@ -35,9 +36,7 @@ class NoteOffsetState extends MusicBeatState
 
 	override public function create()
 	{
-		#if DISCORD_ALLOWED
-		DiscordClient.changePresence("Delay/Combo Offset Menu", null);
-		#end
+		EzDiscord.changePresence("Delay/Combo Offset Menu", null);
 
 		// Cameras
 		camGame = initPsychCamera();

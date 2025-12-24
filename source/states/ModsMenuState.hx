@@ -1,5 +1,6 @@
 package states;
 
+import stokin.backend.EzDiscord;
 import openfl.display.BitmapData;
 import backend.Mods;
 import flixel.graphics.FlxGraphic;
@@ -62,10 +63,7 @@ class ModsMenuState extends MusicBeatState
 		modsList = Mods.parseList();
 		Mods.loadTopMod();
 
-		#if DISCORD_ALLOWED
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
-		#end
+		EzDiscord.changePresence("In the Menus", null);
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.color = 0xFF665AFF;

@@ -4,6 +4,7 @@ import flixel.FlxObject;
 import flixel.util.FlxSort;
 import objects.Bar;
 import stokin.states.MainMenuState;
+import stokin.backend.EzDiscord;
 
 #if ACHIEVEMENTS_ALLOWED
 class AchievementsMenuState extends MusicBeatState
@@ -26,9 +27,7 @@ class AchievementsMenuState extends MusicBeatState
 		CacheSystem.clearStoredMemory();
 		CacheSystem.clearUnusedMemory();
 
-		#if DISCORD_ALLOWED
-		DiscordClient.changePresence("Achievements Menu", null);
-		#end
+		EzDiscord.changePresence("Achievements Menu", null);
 
 		// prepare achievement list
 		for (achievement => data in Achievements.achievements)

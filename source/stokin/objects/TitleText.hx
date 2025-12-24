@@ -1,0 +1,1 @@
+package stokin.objects;

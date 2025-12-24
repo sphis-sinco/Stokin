@@ -1,19 +1,20 @@
 package stokin.states;
 
+import stokin.backend.EzDiscord;
+import stokin.backend.codeins.CodeinBeatState;
 import mikolka.compatibility.ModsHelper;
 
-class MainMenuState extends MusicBeatState
+class MainMenuState extends CodeinBeatState
 {
-	var stickerSubState:Bool;
+	public var stickerSubState:Bool;
+
+	public var transitioning:Bool = false;
 
 	public function new(?stickers:Bool = false)
 	{
 		super();
 		stickerSubState = stickers;
-	}
 
-	override function create()
-	{
 		if (stickerSubState)
 			ModsHelper.clearStoredWithoutStickers();
 		else
@@ -26,9 +27,20 @@ class MainMenuState extends MusicBeatState
 
 		ModsHelper.resetActiveMods();
 
-		#if DISCORD_ALLOWED
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
-		#end
+		EzDiscord.changePresence("In the Menus", null);
+
+		addCodein(UPDATE, function()
+		{
+			if (FlxG.keys.justReleased.ANY && !transitioning)
+			{
+				transitioning = true;
+
+				FlxG.camera.flash(FlxColor.WHITE, 4, function()
+				{
+					MusicBeatState.switchState(new TitleState());
+				});
+				FlxG.sound.play(Paths.sound('cancelMenu-wood'));
+			}
+		});
 	}
 }

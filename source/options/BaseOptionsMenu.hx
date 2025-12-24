@@ -1,5 +1,6 @@
 package options;
 
+import stokin.backend.EzDiscord;
 import mikolka.funkin.custom.mobile.MobileScaleMode;
 import mobile.objects.TouchZone;
 import flixel.input.keyboard.FlxKey;
@@ -42,9 +43,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		if (rpcTitle == null)
 			rpcTitle = 'Options Menu';
 
-		#if DISCORD_ALLOWED
-		DiscordClient.changePresence(rpcTitle, null);
-		#end
+		EzDiscord.changePresence(rpcTitle);
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.color = 0xFFea71fd;

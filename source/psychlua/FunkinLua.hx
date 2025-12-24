@@ -751,7 +751,7 @@ class FunkinLua {
 			return true;
 		});
 		Lua_helper.add_callback(lua, "exitSong", function(?skipTransition:Bool = false) {
-			#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
+			EzDiscord.resetClientID();
 
 			PlayState.changedDifficulty = false;
 			PlayState.chartingMode = false;
@@ -1566,7 +1566,7 @@ class FunkinLua {
 			return closed;
 		});
 
-		#if DISCORD_ALLOWED DiscordClient.addLuaCallbacks(lua); #end
+		EzDiscord.addLuaCallbacks(lua);
 		#if ACHIEVEMENTS_ALLOWED Achievements.addLuaCallbacks(lua); #end
 		#if TRANSLATIONS_ALLOWED Language.addLuaCallbacks(lua); #end
 		#if HSCRIPT_ALLOWED HScript.implement(this); #end

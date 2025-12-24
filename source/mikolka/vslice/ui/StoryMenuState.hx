@@ -1,5 +1,6 @@
 package mikolka.vslice.ui;
 
+import stokin.backend.EzDiscord;
 import mikolka.funkin.custom.mobile.MobileScaleMode;
 import mikolka.compatibility.VsliceOptions;
 import mikolka.vslice.components.crash.UserErrorSubstate;
@@ -88,10 +89,7 @@ class StoryMenuState extends MusicBeatState
 		PlayState.altInstrumentals = null; // ? P-Slice
 		WeekData.reloadWeekFiles(true);
 
-		#if DISCORD_ALLOWED
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
-		#end
+		EzDiscord.changePresence("In the Menus", null);
 
 		final accept:String = controls.mobileC ? "A" : "ACCEPT";
 		final reject:String = controls.mobileC ? "B" : "BACK";

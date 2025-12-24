@@ -330,10 +330,7 @@ class WeekEditorState extends MusicBeatState implements PsychUIEventHandler.Psyc
 		}
 		recalculateStuffPosition();
 
-		#if DISCORD_ALLOWED
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Week Editor", "Editting: " + weekFileName);
-		#end
+		EzDiscord.changePresence("Week Editor", "Editting: " + weekFileName);
 	}
 	
 	public function UIEvent(id:String, sender:Dynamic) {

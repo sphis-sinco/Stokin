@@ -31,10 +31,7 @@ class MenuCharacterEditorState extends MusicBeatState implements PsychUIEventHan
 			antialiasing: true
 		};
 		
-		#if DISCORD_ALLOWED
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Menu Character Editor", "Editting: " + characterFile.image);
-		#end
+		EzDiscord.changePresence("Menu Character Editor", "Editting: " + characterFile.image);
 
 		grpWeekCharacters = new FlxTypedGroup<MenuCharacter>();
 		for (char in 0...3)
@@ -186,10 +183,7 @@ class MenuCharacterEditorState extends MusicBeatState implements PsychUIEventHan
 		char.animation.play('idle');
 		updateOffset();
 		
-		#if DISCORD_ALLOWED
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Menu Character Editor", "Editting: " + characterFile.image);
-		#end
+		EzDiscord.changePresence("Menu Character Editor", "Editting: " + characterFile.image);
 	}
 
 	public function UIEvent(id:String, sender:Dynamic) {

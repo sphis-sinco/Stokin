@@ -1,5 +1,6 @@
 package options;
 
+import stokin.backend.EzDiscord;
 import mikolka.funkin.custom.mobile.MobileScaleMode;
 import mikolka.vslice.components.crash.UserErrorSubstate;
 import backend.StageData;
@@ -85,9 +86,7 @@ class OptionsState extends MusicBeatState
 		add(camFollowPos);
 		FlxG.cameras.list[FlxG.cameras.list.indexOf(funnyCam)].follow(camFollowPos);
 
-		#if DISCORD_ALLOWED
-		DiscordClient.changePresence("Options Menu", null);
-		#end
+		EzDiscord.changePresence("Options Menu", null);
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
@@ -139,9 +138,7 @@ class OptionsState extends MusicBeatState
 	{
 		super.closeSubState();
 		ClientPrefs.saveSettings();
-		#if DISCORD_ALLOWED
-		DiscordClient.changePresence("Options Menu", null);
-		#end
+		EzDiscord.changePresence("Options Menu", null);
 		controls.isInSubstate = false;
 		persistentUpdate = funnyCam.visible = true;
 		

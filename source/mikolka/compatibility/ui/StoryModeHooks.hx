@@ -50,9 +50,7 @@ class StoryModeHooks {
 				LoadingState.loadAndSwitchState(new PlayState(), true);
 			});
 
-			#if (MODS_ALLOWED && DISCORD_ALLOWED)
-			DiscordClient.loadModRPC();
-			#end
+			EzDiscord.loadModRPC();
     } 
     // returns "true" is succsessful
     public static function prepareWeek(host:StoryMenuState):Bool{

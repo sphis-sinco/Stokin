@@ -4,6 +4,7 @@ import mikolka.vslice.freeplay.capsule.SongMenuItem;
 import mikolka.vslice.freeplay.capsule.SongCapsuleGroup;
 import mikolka.funkin.custom.mobile.MobileScaleMode;
 import flixel.math.FlxRect;
+import stokin.backend.EzDiscord;
 import stokin.states.MainMenuState;
 import mikolka.vslice.freeplay.backcards.LuaCard;
 import mikolka.vslice.freeplay.obj.CapsuleOptionsMenu;
@@ -353,10 +354,7 @@ class FreeplayState extends MusicBeatSubstate
 			stickerSubState.degenStickers();
 		}
 
-		#if discord_rpc
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence('In the Menus', null);
-		#end
+		EzDiscord.changePresence();
 
 		var isDebug:Bool = false;
 

@@ -62,7 +62,7 @@ class CrashHandler
 		trace(logMsg);
 
 		CoolUtil.showPopUp(logMsg, "Critical Error!");
-		#if DISCORD_ALLOWED DiscordClient.shutdown(); #end
+		EzDiscord.shutdown();
 		lime.system.System.exit(1);
 	}
 	#end

@@ -290,7 +290,7 @@ class ClientPrefs
 		if (FlxG.save.data.mute != null)
 			FlxG.sound.muted = FlxG.save.data.mute;
 
-		#if DISCORD_ALLOWED DiscordClient.check(); #end
+		EzDiscord.check();
 
 		// controls on a separate save file
 		var save:FlxSave = new FlxSave();

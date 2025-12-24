@@ -1,5 +1,6 @@
 package cutscenes;
 
+import stokin.backend.EzDiscord;
 import substates.PauseSubState;
 import flixel.FlxBasic;
 import flixel.util.FlxSort;
@@ -110,10 +111,8 @@ class CutsceneHandler extends FlxBasic
 						
 					});
 
-					#if DISCORD_ALLOWED
 					@:privateAccess
-					if(game.autoUpdateRPC) DiscordClient.changePresence("Cutscene paused", PlayState.SONG.song + " (" + game.storyDifficultyText + ")", game.iconP2.getCharacter());
-					#end
+					if(game.autoUpdateRPC) EzDiscord.changePresence("Cutscene paused", PlayState.SONG.song + " (" + game.storyDifficultyText + ")", game.iconP2.getCharacter());
 				}
 			// 	holdingTime = Math.max(0, Math.min(_timeToSkip, holdingTime + elapsed));
 			// else if (holdingTime > 0)

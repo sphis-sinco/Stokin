@@ -1,5 +1,6 @@
 package options;
 
+import stokin.backend.EzDiscord;
 import backend.InputFormatter;
 import flixel.addons.display.FlxBackdrop;
 import flixel.addons.display.FlxGridOverlay;
@@ -73,9 +74,7 @@ class ControlsSubState extends MusicBeatSubstate
 
 		super();
 
-		#if DISCORD_ALLOWED
-		DiscordClient.changePresence("Controls Menu", null);
-		#end
+		EzDiscord.changePresence("Controls Menu", null);
 
 		options.push([true]);
 		options.push([true]);

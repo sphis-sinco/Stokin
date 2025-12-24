@@ -12,6 +12,7 @@ import objects.HealthIcon;
 import objects.Bar;
 import states.editors.content.Prompt;
 import states.editors.content.PsychJsonPrinter;
+import stokin.backend.EzDiscord;
 
 @:bitmap("assets/embed/images/ui/cursorCross.png")
 class GraphicCursorCross extends BitmapData
@@ -1322,10 +1323,7 @@ class CharacterEditorState extends MusicBeatState implements PsychUIEventHandler
 
 	inline function updatePresence()
 	{
-		#if DISCORD_ALLOWED
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Character Editor", "Character: " + _char, healthIcon.getCharacter());
-		#end
+		EzDiscord.changePresence("Character Editor", "Character: " + _char, healthIcon.getCharacter());
 	}
 
 	inline function reloadAnimList()

@@ -2214,9 +2214,7 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 			catch (e:Dynamic) {}
 		}
 
-		#if DISCORD_ALLOWED
-		DiscordClient.changePresence('Chart Editor', 'Song: ' + PlayState.SONG.song);
-		#end
+		EzDiscord.changePresence('Chart Editor', 'Song: ' + PlayState.SONG.song);
 
 		updateAudioVolume();
 		setPitch();

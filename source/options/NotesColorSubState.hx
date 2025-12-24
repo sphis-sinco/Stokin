@@ -1,5 +1,6 @@
 package options;
 
+import stokin.backend.EzDiscord;
 import flixel.addons.display.FlxBackdrop;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.display.shapes.FlxShapeCircle;
@@ -50,9 +51,7 @@ class NotesColorSubState extends MusicBeatSubstate
 	public function new() {
 		super();
 		
-		#if DISCORD_ALLOWED
-		DiscordClient.changePresence("Note Colors Menu", null);
-		#end
+		EzDiscord.changePresence("Note Colors Menu", null);
 		
 		onPixel = PlayState.isPixelStage;
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));

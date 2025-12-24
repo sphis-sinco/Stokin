@@ -30,9 +30,7 @@ class CrashState extends FlxState
 			Main.debugDisplay.visible = false;
 
 		super.create();
-		#if DISCORD_ALLOWED
-		DiscordClient.shutdown();
-		#end
+		EzDiscord.shutdown();
 		var previousScreen = new FlxSprite(0, 0, BitmapData.fromImage(FlxG.stage.window.readPixels()));
 		previousScreen.setGraphicSize(FlxG.width,FlxG.height);
 		previousScreen.updateHitbox();

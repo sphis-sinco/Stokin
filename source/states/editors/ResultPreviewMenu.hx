@@ -23,10 +23,7 @@ class ResultPreviewMenu extends MusicBeatState
 		FlxG.sound.playMusic(Paths.music('breakfast'));
 
 		FlxG.camera.bgColor = FlxColor.BLACK;
-		#if DISCORD_ALLOWED
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Result Preview Menu", null);
-		#end
+		EzDiscord.changePresence("Result Preview Menu", null);
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuBGBlue'));
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.screenCenter();

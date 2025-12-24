@@ -323,9 +323,7 @@ class Main extends Sprite
 		FlxG.keys.preventDefaultKeys = [TAB];
 		#end
 
-		#if DISCORD_ALLOWED
-		DiscordClient.prepare();
-		#end
+		EzDiscord.prepare();
 
 		#if mobile
 		#if android FlxG.android.preventDefaultKeys = [BACK]; #end

@@ -1,5 +1,6 @@
 package states;
 
+import stokin.backend.EzDiscord;
 import mikolka.funkin.custom.mobile.MobileScaleMode;
 import objects.AttachedSprite;
 import stokin.states.MainMenuState;
@@ -21,10 +22,7 @@ class CreditsState extends MusicBeatState
 
 	override function create()
 	{
-		#if DISCORD_ALLOWED
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
-		#end
+		EzDiscord.changePresence("In the Menus", null);
 
 		persistentUpdate = true;
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));

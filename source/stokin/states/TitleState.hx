@@ -39,7 +39,7 @@ class TitleState extends CodeinBeatState
 			{
 				transitioning = true;
 
-				FlxG.camera.flash(FlxColor.WHITE, 4, function()
+				FlxG.camera.flash(FlxColor.WHITE, 2, function()
 				{
 					MusicBeatState.switchState(new MainMenuState());
 				});

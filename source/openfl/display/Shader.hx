@@ -13,6 +13,7 @@ import openfl.utils.ByteArray;
 import openfl.utils._internal.Float32Array;
 import openfl.utils._internal.Log;
 import openfl.Lib;
+import StringTools;
 
 /**
 	// TODO: Document GLSL Shaders

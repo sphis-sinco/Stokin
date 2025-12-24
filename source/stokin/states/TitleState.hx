@@ -29,7 +29,7 @@ class TitleState extends CodeinBeatState
 			pressAny.text = "Press anything to play";
 			pressAny.size = 16;
 			pressAny.screenCenter();
-			pressAny.y -= pressAny.height;
+			pressAny.y += pressAny.height * 4;
 			add(pressAny);
 		});
 

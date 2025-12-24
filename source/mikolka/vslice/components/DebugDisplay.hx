@@ -149,7 +149,8 @@ class FunkinDebugDisplay extends Sprite
 
 	override function __enterFrame(deltaTime:Int):Void
 	{
-		if(!visible) return;
+		if (!visible)
+			return;
 		#if html5
 		final currentTime:Float = js.Browser.window.performance.now();
 		#else
@@ -229,6 +230,7 @@ class FunkinDebugDisplay extends Sprite
 		{
 			final info:Array<String> = [];
 
+			info.push('Version: ${Global.modVersion}');
 			info.push('FPS: $currentFPS');
 
 			#if !html5

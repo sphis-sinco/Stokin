@@ -209,6 +209,8 @@
 
 	<assets
 		path="assets/atsc_shared" rename="assets/shared" />
+	<assets
+		path="assets/stokin_shared" rename="assets/shared" />
 
 	<section
 		if="MODS_ALLOWED">

@@ -165,16 +165,16 @@ class Main extends Sprite
 		#end
 
 		trace("Initializing save .sol");
-		FlxG.save.bind('funkin', CoolUtil.getSavePath(), (rawSave, error) ->
+		FlxG.save.bind('stokin', CoolUtil.getSavePath(), (rawSave, error) ->
 		{
 			#if sys
 			trace("Couldn't load main save. Attempting to extract");
 			try
 			{
-				var badSave = File.write(StorageUtil.getStorageDirectory() + "/funkin.sol.bad");
+				var badSave = File.write(StorageUtil.getStorageDirectory() + "/stokin.sol.bad");
 				badSave.writeString(rawSave);
 				badSave.close();
-				trace("Extracted bad save to funkin.sol.bad. Creating new save..");
+				trace("Extracted bad save to stokin.sol.bad. Creating new save..");
 			}
 			catch (x)
 			{

@@ -79,9 +79,9 @@ class InitState extends MusicBeatState
 		var path = Path.join([
 			lime.system.System.applicationStorageDirectory,
 			backend.CoolUtil.getSavePath(),
-			"funkin.sol"
+			"stokin.sol"
 		]);
-		var exportPath = Path.join([mobile.backend.StorageUtil.StorageType.fromStr("EXTERNAL"), "funkin.sol"]);
+		var exportPath = Path.join([mobile.backend.StorageUtil.StorageType.fromStr("EXTERNAL"), "stokin.sol"]);
 		#if !OLD_SIGN_KEYS
 		if (FileSystem.exists(exportPath) && FlxG.save.data.flashing == null)
 		{

@@ -4,7 +4,6 @@ import mikolka.vslice.components.crash.UserErrorSubstate.CrashData;
 import mikolka.compatibility.VsliceOptions;
 import mikolka.compatibility.ModsHelper;
 import flixel.FlxState;
-import mikolka.vslice.ui.title.TitleState;
 import openfl.events.ErrorEvent;
 import openfl.display.BitmapData;
 // crash handler stuff

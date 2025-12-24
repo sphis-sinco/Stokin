@@ -2,7 +2,6 @@ package mikolka.vslice.components.crash;
 
 import mikolka.funkin.custom.mobile.MobileScaleMode;
 import mikolka.compatibility.VsliceOptions;
-import mikolka.vslice.ui.title.TitleState;
 import mikolka.compatibility.ModsHelper;
 import haxe.CallStack.StackItem;
 import flixel.util.typeLimit.OneOfTwo;
@@ -159,10 +158,8 @@ class UserErrorSubstate extends MusicBeatSubstate
 				close();
 				return;
 			}
-			TitleState.initialized = false;
             ScreenshotPlugin.instance.destroy();
             ScreenshotPlugin.instance = null;
-			TitleState.closedState = false;
 			#if LEGACY_PSYCH
 			if (Main.debugDisplay != null)
 				Main.debugDisplay.visible = ClientPrefs.showFPS;

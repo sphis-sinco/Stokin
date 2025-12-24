@@ -5,7 +5,6 @@ import backend.Mods;
 import flixel.graphics.FlxGraphic;
 import flixel.util.FlxSpriteUtil;
 import options.ModSettingsSubState;
-import mikolka.vslice.ui.title.TitleState;
 import mikolka.funkin.custom.mobile.MobileScaleMode;
 
 class ModsMenuState extends MusicBeatState
@@ -358,9 +357,6 @@ class ModsMenuState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			if (waitingToRestart)
 			{
-				// MusicBeatState.switchState(new TitleState());
-				TitleState.initialized = false;
-				TitleState.closedState = false;
 				FlxG.sound.music.fadeOut(0.3);
 				FlxG.camera.fade(FlxColor.BLACK, 0.5, false, FlxG.resetGame, false);
 			}

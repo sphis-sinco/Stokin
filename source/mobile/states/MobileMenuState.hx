@@ -2,7 +2,7 @@ package mobile.states;
 
 import flixel.effects.FlxFlicker;
 import mikolka.vslice.freeplay.FreeplayState;
-import mikolka.vslice.ui.title.TitleState;
+import stokin.states.TitleState;
 import mikolka.funkin.custom.mobile.MobileScaleMode;
 import mobile.objects.GridButtons;
 import flixel.FlxBasic;

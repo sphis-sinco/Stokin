@@ -3,7 +3,6 @@ package mikolka.vslice.ui;
 import mikolka.vslice.ui.mainmenu.DesktopMenuState;
 import mikolka.compatibility.ui.MainMenuHooks;
 import mikolka.compatibility.VsliceOptions;
-import mikolka.vslice.ui.title.TitleState;
 import mikolka.compatibility.ModsHelper;
 import options.OptionsState;
 

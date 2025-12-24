@@ -1,5 +1,6 @@
 package stokin.states;
 
+import mikolka.vslice.components.crash.Logger;
 import stokin.backend.codeins.CodeinBeatState;
 
 class TitleState extends CodeinBeatState
@@ -12,6 +13,17 @@ class TitleState extends CodeinBeatState
 	override public function new()
 	{
 		super();
+
+		addCodein(CREATE, function()
+		{
+			CacheSystem.clearStoredMemory();
+			CacheSystem.clearUnusedMemory();
+
+			trace("Enforcing log settings!");
+			#if sys
+			Logger.enforceLogSettings = true;
+			#end
+		});
 
 		addCodein(CREATE, function()
 		{

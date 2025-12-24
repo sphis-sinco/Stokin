@@ -207,6 +207,7 @@ class FunkinDebugDisplay extends Sprite
 		#end
 
 		final info:Array<String> = [];
+		info.push('Version: ${Global.modVersion}');
 		info.push('FPS: $currentFPS');
 		info.push('AVG FPS: ${Math.floor(fpsGraph.average())}');
 		info.push('1% LOW FPS: ${Math.floor(fpsGraph.lowest())}');

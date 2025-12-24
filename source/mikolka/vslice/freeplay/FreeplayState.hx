@@ -4,7 +4,7 @@ import mikolka.vslice.freeplay.capsule.SongMenuItem;
 import mikolka.vslice.freeplay.capsule.SongCapsuleGroup;
 import mikolka.funkin.custom.mobile.MobileScaleMode;
 import flixel.math.FlxRect;
-import mikolka.vslice.ui.MainMenuState;
+import stokin.states.MainMenuState;
 import mikolka.vslice.freeplay.backcards.LuaCard;
 import mikolka.vslice.freeplay.obj.CapsuleOptionsMenu;
 import mikolka.compatibility.funkin.FunkinControls;

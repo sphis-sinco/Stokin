@@ -61,7 +61,6 @@ import mikolka.funkin.*;
 import mikolka.funkin.utils.*;
 import mikolka.funkin.custom.*;
 import mikolka.funkin.players.*;
-import states.FreeplayState as C_;
 
 //P-Slice Dialouges
 import mikolka.stages.cutscenes.dialogueBox.*;
@@ -137,5 +136,6 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.system.FlxAssets.FlxShader;
 
+import stokin.Global;
 
 #end

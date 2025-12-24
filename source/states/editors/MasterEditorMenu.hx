@@ -9,6 +9,7 @@ import mikolka.compatibility.VsliceOptions;
 import backend.WeekData;
 import mikolka.vslice.results.ResultState;
 import objects.Character;
+import stokin.states.MainMenuState;
 
 class MasterEditorMenu extends MusicBeatState
 {

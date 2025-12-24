@@ -48,7 +48,7 @@ class CrashState extends FlxState
             var star = #if CHECK_FOR_UPDATES "" #else "*" #end;
             dateNow = dateNow.replace(' ', '_');
             dateNow = dateNow.replace(':', "'");
-            errMsg += 'P-Slice ${MainMenuState.pSliceVersion}$star\n';
+            errMsg += 'Stokin ${Global.modVersion}$star\n';
             errMsg += '\nUncaught Error: ' + error.message + "\n";
             for (x in error.extendedTrace)
             {
@@ -58,9 +58,9 @@ class CrashState extends FlxState
             errMsg += 'Active mod: ${error.activeMod}\n';
             errMsg += 'Platform: ${error.systemName}\n';
             errMsg += '\n';
-            errMsg += '\nPlease report this error to the GitHub page: https://github.com/Psych-Slice/P-Slice\n\n> Crash Handler written by: sqirra-rng';
+            errMsg += '\nPlease report this error to the GitHub page: https://github.com/sphis-sinco/Stokin\n\n> Crash Handler written by: sqirra-rng';
     
-            var path = './crash/' + 'PSlice_' + dateNow + '.txt';
+            var path = './crash/' + 'Stokin_' + dateNow + '.txt';
             File.saveContent(path, errMsg + '\n');
             Sys.println(errMsg);
         }

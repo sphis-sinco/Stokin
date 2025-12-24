@@ -6,6 +6,7 @@ import flixel.graphics.FlxGraphic;
 import flixel.util.FlxSpriteUtil;
 import options.ModSettingsSubState;
 import mikolka.funkin.custom.mobile.MobileScaleMode;
+import stokin.states.MainMenuState;
 
 class ModsMenuState extends MusicBeatState
 {

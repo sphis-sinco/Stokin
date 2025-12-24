@@ -22,6 +22,7 @@ import substates.ResetScoreSubState;
 import Paths as CacheSystem;
 import editors.MasterEditorMenu;
 #end
+import stokin.states.MainMenuState;
 
 class StoryMenuState extends MusicBeatState
 {
@@ -459,7 +460,7 @@ class StoryMenuState extends MusicBeatState
 		var diff:String = StoryModeHooks.getDifficultyString(curDifficulty);
 
 		// Check for animated difficulties
-		if (Paths.fileExists('images/menudifficulties/' + Paths.formatToSongPath(diff) + ".xml",BINARY))
+		if (Paths.fileExists('images/menudifficulties/' + Paths.formatToSongPath(diff) + ".xml", BINARY))
 		{
 			var newFrames = Paths.getSparrowAtlas('menudifficulties/' + Paths.formatToSongPath(diff));
 			sprDifficulty.frames = newFrames;

@@ -2,6 +2,7 @@ package states;
 
 import mikolka.funkin.custom.mobile.MobileScaleMode;
 import objects.AttachedSprite;
+import stokin.states.MainMenuState;
 
 class CreditsState extends MusicBeatState
 {

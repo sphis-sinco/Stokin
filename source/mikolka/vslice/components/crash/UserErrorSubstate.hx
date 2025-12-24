@@ -183,7 +183,7 @@ class UserErrorSubstate extends MusicBeatSubstate
 	{
 		//43
 		var star = #if (CHECK_FOR_UPDATES || debug) "" #else "*" #end;
-		printToTrace('P-SLICE ${MainMenuState.pSliceVersion}$star  (${error.message})');
+		printToTrace('STOKIN ${Global.modVersion}$star  (${error.message})');
 		textNextY += 35;
 		FlxTimer.wait(1 / 24, () ->
 		{
@@ -225,7 +225,7 @@ class UserErrorSubstate extends MusicBeatSubstate
 			printToTrace('RUNTIME INFORMATION');
 			var date_split = error.date.split(" ");
 			printToTrace('TIME:${date_split[1].rpad(" ", 9)} DATE:${date_split[0]}');
-			printToTrace('MOD:${error.activeMod.rpad(" ", 10)} PE:${MainMenuState.psychEngineVersion.rpad(" ", 5)} SYS:${error.systemName}');
+			printToTrace('MOD:${error.activeMod.rpad(" ", 10)} PS:${Global.pSliceVersion.rpad(" ", 5)} SYS:${error.systemName}');
 			printSpaceToTrace();
             printToTrace(getLogger());
 			if (isCritical)

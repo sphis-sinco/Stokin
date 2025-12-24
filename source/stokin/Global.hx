@@ -1,5 +1,7 @@
 package stokin;
 
+import lime.app.Application;
+
 class Global
 {
 	public static var modVersion(get, never):String;

@@ -37,7 +37,7 @@
 	<!-- ______________________ PSYCH ENGINE CUSTOMIZATION ______________________ -->
 
 	<!-- Compiles mod support for P-Slice. Feel free to disable if you're making a source mod -->
-	<!-- <define name="MODS_ALLOWED" if="desktop || mobile" /> -->
+	<define name="MODS_ALLOWED" if="desktop || mobile" />
 
 	<section
 		unless="debug">
@@ -235,6 +235,8 @@
 	</section>
 	<haxelib name="tjson"
 		version="1.4.0" />
+	<haxelib name="grig.audio" />
+	<haxelib name="funkin.vis" />
 
 	<!--Psych
 	stuff needed-->

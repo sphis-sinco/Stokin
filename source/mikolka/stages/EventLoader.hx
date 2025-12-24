@@ -21,7 +21,8 @@ class EventLoader extends BaseStage {
     public static function implement(funk:FunkinLua)
         {
             var lua:State = funk.lua;
-            funk.set('versionPS', MainMenuState.pSliceVersion.trim());
+            funk.set('versionMod', Global.modVersion.trim());
+            funk.set('versionPS', Global.pSliceVersion.trim());
             Lua_helper.add_callback(lua, "changeTransStickers", function(stickerSet:String = null,stickerPack:String = null) {
                 if(stickerSet != null && stickerSet != "") StickerSubState.STICKER_SET = stickerSet;
                 if(stickerPack != null && stickerPack != "") StickerSubState.STICKER_PACK = stickerPack;

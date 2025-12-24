@@ -20,6 +20,8 @@ import openfl.display.Sprite;
 import openfl.display.Bitmap;
 import flixel.FlxState;
 
+import stokin.states.MainMenuState;
+
 using Lambda;
 using mikolka.funkin.IteratorTools;
 

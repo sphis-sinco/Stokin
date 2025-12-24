@@ -4,6 +4,7 @@ import mikolka.funkin.custom.mobile.MobileScaleMode;
 import mikolka.vslice.components.crash.UserErrorSubstate;
 import backend.StageData;
 import flixel.FlxObject;
+import stokin.states.MainMenuState;
 
 class OptionsState extends MusicBeatState
 {

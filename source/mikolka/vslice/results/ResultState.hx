@@ -38,6 +38,7 @@ import flixel.util.FlxTimer;
 import mikolka.funkin.players.*;
 import mikolka.funkin.players.PlayerData.PlayerFreeplayDJData;
 import mikolka.funkin.custom.VsliceSubState as MusicBeatSubState;
+import stokin.states.MainMenuState;
 
 
 /**

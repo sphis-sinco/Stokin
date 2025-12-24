@@ -15,19 +15,22 @@ class MainMenuState extends CodeinBeatState
 		super();
 		stickerSubState = stickers;
 
-		if (stickerSubState)
-			ModsHelper.clearStoredWithoutStickers();
-		else
-			CacheSystem.clearStoredMemory();
-		CacheSystem.clearUnusedMemory();
-		#if (debug && !LEGACY_PSYCH)
-		FlxG.console.registerFunction("dumpCache", CacheSystem.cacheStatus);
-		FlxG.console.registerFunction("dumpSystem", backend.Native.buildSystemInfo);
-		#end
+		addCodein(CREATE, function()
+		{
+			if (stickerSubState)
+				ModsHelper.clearStoredWithoutStickers();
+			else
+				CacheSystem.clearStoredMemory();
+			CacheSystem.clearUnusedMemory();
+			#if (debug && !LEGACY_PSYCH)
+			FlxG.console.registerFunction("dumpCache", CacheSystem.cacheStatus);
+			FlxG.console.registerFunction("dumpSystem", backend.Native.buildSystemInfo);
+			#end
 
-		ModsHelper.resetActiveMods();
+			ModsHelper.resetActiveMods();
 
-		EzDiscord.changePresence("In the Menus", null);
+			EzDiscord.changePresence("In the Menus", null);
+		});
 
 		addCodein(UPDATE, function()
 		{

@@ -22,4 +22,9 @@ haxelib install tjson 1.4.0 --quiet --skip-dependencies
 haxelib install hxdiscord_rpc 1.2.4 --quiet --skip-dependencies
 haxelib git hxCodec https://github.com/polybiusproxy/hxCodec.git 0a51aed0d9523d22a83e453ce7b593ec7fed4742 --skip-dependencies
 haxelib git linc_luajit https://github.com/superpowers04/linc_luajit 1906c4a96f6bb6df66562b3f24c62f4c5bba14a7 --skip-dependencies
+
+# Meep
+haxelib install hxcpp-debug-server
+haxelib git flixel-studio https://github.com/Dovyski/flixel-studio.git
+
 echo Finished!

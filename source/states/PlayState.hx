@@ -3143,7 +3143,7 @@ private function popUpScore(note:Note = null):Void
 
 	if(daRating.name == "bad" || daRating.name == "shit") combo = 0; //V-Slice combo thingy
 
-	totalNotesHit += daRating.ratingMod;
+	totalNotesHit += 1;
 	note.ratingMod = daRating.ratingMod;
 	if (!note.ratingDisabled)
 		daRating.hits++;

@@ -8,7 +8,7 @@
 	<app
 		title="Stokin"
 		file="Stokin" packageName="com.sphis.stokin" package="com.sphis.stokin"
-		main="Main" version="3.4.2" company="Sphis" />
+		main="Main" version="1.0.0" company="Sphis" />
 	<!--Switch
 	Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />

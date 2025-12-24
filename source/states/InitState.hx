@@ -3,6 +3,7 @@ package states;
 import lime.utils.Assets;
 import mikolka.funkin.custom.mobile.MobileScaleMode;
 import stokin.states.TitleState;
+import stokin.Global;
 import flixel.input.keyboard.FlxKey;
 import mikolka.vslice.ui.disclaimer.TextWarnings.FlashingState;
 import mikolka.vslice.ui.disclaimer.TextWarnings.OutdatedState;
@@ -135,7 +136,7 @@ class InitState extends MusicBeatState
 			http.onData = function(data:String)
 			{
 				updateVersion = data.split('\n')[0].trim();
-				var curVersion:String = MainMenuState.pSliceVersion.trim();
+				var curVersion:String = Global.modVersion.trim();
 				trace('version online: ' + updateVersion + ', your version: ' + curVersion);
 				if (updateVersion != curVersion)
 				{

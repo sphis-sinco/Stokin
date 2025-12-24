@@ -130,7 +130,7 @@ class InitState extends MusicBeatState
 		if (ClientPrefs.data.checkForUpdates)
 		{
 			trace('checking for update');
-			var http = new haxe.Http("https://raw.githubusercontent.com/mikolka9144/P-Slice/master/gitVersion.txt");
+			var http = new haxe.Http("https://raw.githubusercontent.com/sphis-sinco/Stokin/refs/heads/main/gitVersion.txt");
 
 			http.onData = function(data:String)
 			{

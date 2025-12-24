@@ -17,7 +17,7 @@ class FunkinDebugDisplay extends Sprite
 {
 	static final UPDATE_DELAY:Int = 100;
 	static final INNER_RECT_DIFF:Int = 3;
-	static final OUTER_RECT_DIMENSIONS:Array<Int> = [234, 221];
+	static final OUTER_RECT_DIMENSIONS:Array<Int> = [234, 241];
 	static final OTHERS_OFFSET:Int = 8;
 
 	/**

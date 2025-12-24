@@ -40,10 +40,15 @@ class ModsHelper
 
 	public inline static function resetActiveMods()
 	{
-		#if MODS_ALLOWED
-		Mods.pushGlobalMods();
-		#end
-		Mods.loadTopMod();
+		try
+		{
+			#if MODS_ALLOWED Mods.pushGlobalMods();
+			Mods.loadTopMod(); #end
+		}
+		catch (e)
+		{
+			trace(e.message);
+		}
 	}
 
 	public static function getModsWithPlayersRegistry():Array<String>

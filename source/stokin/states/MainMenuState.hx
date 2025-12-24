@@ -17,24 +17,13 @@ class MainMenuState extends CodeinBeatState
 
 		addCodein(CREATE, function()
 		{
-			try
-			{
-				if (stickerSubState)
-					ModsHelper.clearStoredWithoutStickers();
-				else
-					CacheSystem.clearStoredMemory();
-				CacheSystem.clearUnusedMemory();
-				#if (debug && !LEGACY_PSYCH)
-				FlxG.console.registerFunction("dumpCache", CacheSystem.cacheStatus);
-				FlxG.console.registerFunction("dumpSystem", backend.Native.buildSystemInfo);
-				#end
+			if (stickerSubState)
+				ModsHelper.clearStoredWithoutStickers();
+			else
+				CacheSystem.clearStoredMemory();
+			CacheSystem.clearUnusedMemory();
 
-				ModsHelper.resetActiveMods();
-			}
-			catch (e)
-			{
-				trace(e.message);
-			}
+			ModsHelper.resetActiveMods();
 
 			EzDiscord.changePresence("In the Menus", null);
 		});
